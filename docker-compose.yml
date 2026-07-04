@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: senus
+      POSTGRES_PASSWORD: senus
+      POSTGRES_DB: senus_board_report
+    ports:
+      - "5432:5432"
+    volumes:
+      - senus_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U senus"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ./apps/api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://senus:senus@db:5432/senus_board_report
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/api:/app
+      - ./data:/data
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  senus_pgdata:
