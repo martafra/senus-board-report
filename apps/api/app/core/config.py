@@ -33,6 +33,8 @@ class Settings(BaseSettings):
     web_origin: str = "http://localhost:5173"
     demo_user_email: str = ""
     demo_user_password: str = ""
+    insight_proxy_url: str = ""
+    insight_proxy_secret: str = ""
 
     @field_validator("database_url")
     @classmethod

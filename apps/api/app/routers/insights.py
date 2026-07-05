@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
-from google.genai.errors import APIError
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.ai.insights import InsightGenerationError
 from app.core.db import get_db
 from app.core.deps import get_current_user
 from app.models import User
@@ -35,7 +35,7 @@ async def _get_or_generate(
         insight = await insights_service.get_or_generate_insight(
             session, section, metrics, force_regenerate=force_regenerate
         )
-    except APIError as exc:
+    except InsightGenerationError as exc:
         # Most commonly the Gemini free tier's daily/per-minute request quota (a real, expected
         # constraint of this project's free-tier choice, not a bug): surface a clear, actionable
         # message instead of a bare 500 with an internal traceback.
@@ -43,7 +43,7 @@ async def _get_or_generate(
             status_code=503,
             detail=(
                 "AI insight generation is temporarily unavailable (the underlying AI service "
-                f"returned an error: {exc.message}). Please try again shortly."
+                f"returned an error: {exc}). Please try again shortly."
             ),
         ) from exc
     return InsightOut.model_validate(insight)

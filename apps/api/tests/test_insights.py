@@ -1,9 +1,9 @@
 from unittest.mock import patch
 
-from google.genai.errors import ClientError
 from sqlalchemy import select
 
 from app.ai import insights as ai_insights
+from app.ai.insights import InsightGenerationError
 from app.models import AIInsight
 from app.services.insights import get_or_generate_insight
 from tests.factories import add_annual_period, add_user, login
@@ -142,14 +142,15 @@ async def test_regenerate_endpoint_produces_new_content(client, session_factory)
 
 async def test_endpoint_returns_a_clean_error_when_the_ai_service_fails(client, session_factory):
     # Reproduces a real failure seen in manual testing: the Gemini free tier's request quota was
-    # exceeded, which raised google.genai.errors.ClientError. This should surface as a clear 503,
-    # not a bare 500 with an internal traceback.
+    # exceeded, which surfaces as an InsightGenerationError (raised by generate_insight regardless
+    # of whether the underlying failure came from a direct Gemini call or the Vercel proxy). This
+    # should surface as a clear 503, not a bare 500 with an internal traceback.
     async with session_factory() as session:
         await add_annual_period(session, label="FY2025", fiscal_year=2025, facts={"revenue": 1.0})
         await add_user(session)
     token = await login(client)
 
-    quota_error = ClientError(429, {"error": {"message": "quota exceeded, retry in 12s"}})
+    quota_error = InsightGenerationError("quota exceeded, retry in 12s")
     with patch.object(ai_insights, "generate_insight", side_effect=quota_error):
         response = await client.get(
             "/insights/profitability", headers={"Authorization": f"Bearer {token}"}
