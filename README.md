@@ -147,6 +147,16 @@ without duplicating that knowledge.
   like `/auth/login` (verified via `pg_stat_activity`, then reproduced and fixed).
 - The Gemini free tier is rate-limited (20 requests/day for `gemini-2.5-flash` at the time of
   writing); a failure there returns a clean `503` with a message, rather than a bare `500`.
+- **Deployed Gemini calls go through a small proxy, not directly.** Google blocks direct Gemini
+  calls from most cloud-hosting datacenter IP ranges (confirmed against Render specifically, and
+  reported against other providers, as of mid-2026), even with a correctly restricted API key, a
+  raw HTTP 403 from Google's frontend, not a normal API error. Direct calls still work fine from a
+  residential IP, so `app/ai/insights.py`'s `generate_insight` only uses the direct Gemini SDK call
+  locally (`INSIGHT_PROXY_URL` unset); when deployed, it instead calls a small serverless function
+  on Vercel (`apps/web/api/generate-insight.ts`, deployed alongside the frontend), which relays the
+  request to Gemini from Vercel's network instead. The API key stays server-side there too, never
+  sent to the browser; a shared secret (`INSIGHT_PROXY_SECRET`, set on both Render and Vercel)
+  stops anyone else who finds the proxy's URL from spending the Gemini quota.
 
 ## Frontend
 

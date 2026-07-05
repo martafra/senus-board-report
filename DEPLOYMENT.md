@@ -22,7 +22,10 @@ the repo root, which declares this explicitly:
 1. Render dashboard, **New** > **Blueprint**, connect this GitHub repo.
 2. Render detects `render.yaml` and shows the one service it defines
    (`senus-board-report-api`, Docker runtime, `dockerfilePath: apps/api/Dockerfile`,
-   `dockerContext: .`). Confirm to create it.
+   `dockerContext: .`). Confirm to create it. Note: `render.yaml` pins the service to the
+   `frankfurt` region; if your Postgres database (step 1) is in a different region, edit that
+   field to match before deploying, Render's internal networking only resolves between services
+   in the same region, and the region can't be changed after a service is created.
 3. It'll prompt for the env vars marked `sync: false` in `render.yaml` (everything except
    `JWT_EXPIRE_MINUTES`, which has a fixed value already). Fill in:
    | Key | Value |
@@ -50,26 +53,40 @@ service didn't have the right build context; delete it and use the Blueprint flo
 1. Vercel dashboard, Add New > Project, import this GitHub repo.
 2. **Root Directory**: `apps/web` (monorepo, so this must be set explicitly).
 3. Framework preset: Vite (should be auto-detected once the root directory is set).
-4. Environment variable: `VITE_API_URL` = the Render API URL from step 2.5, e.g.
-   `https://senus-board-report-api.onrender.com` (no trailing slash).
+4. Environment variables:
+   | Key | Value |
+   | --- | --- |
+   | `VITE_API_URL` | the Render API URL from step 2.5, e.g. `https://senus-board-report-api.onrender.com` (no trailing slash) |
+   | `GEMINI_API_KEY` | your key from aistudio.google.com (used by `apps/web/api/generate-insight.ts`, see step 4a below) |
+   | `INSIGHT_PROXY_SECRET` | a random string, e.g. `python3 -c "import secrets; print(secrets.token_hex(24))"` |
 5. Deploy. `apps/web/vercel.json` already rewrites every path to `index.html`, so client-side
    routes like `/dashboard/profitability` work on a direct visit or refresh, not just via in-app
    navigation.
 
 ## 4. Close the loop
 
-Go back to the Render API service and set `WEB_ORIGIN` to the real Vercel URL from step 3
-(`https://<your-project>.vercel.app`), then redeploy the API (Render redeploys automatically on an
-env var change on most plans; trigger one manually if not). Without this the browser's CORS check
-blocks every request from the deployed frontend to the deployed API, even though both are
-individually reachable.
+a. Go back to the Render API service's environment variables and add:
+   | Key | Value |
+   | --- | --- |
+   | `INSIGHT_PROXY_URL` | `https://<your-vercel-project>.vercel.app/api/generate-insight` |
+   | `INSIGHT_PROXY_SECRET` | the exact same value used on Vercel in step 3 |
+   This is required, not optional: Google blocks direct Gemini calls from Render's IP range (see
+   the README's AI insights section), so without this the AI Insight panels will fail with a 503.
+b. Also set `WEB_ORIGIN` to the real Vercel URL from step 3 (`https://<your-project>.vercel.app`).
+c. Redeploy the API (Render redeploys automatically on an env var change on most plans; trigger
+   one manually if not). Without step (b), the browser's CORS check blocks every request from the
+   deployed frontend to the deployed API, even though both are individually reachable. Environment
+   variables added on Vercel in step 3 need a manual redeploy there too if one didn't start
+   automatically (Deployments tab > Redeploy on the latest deployment).
 
 ## 5. Verify
 
 Visit the Vercel URL, sign in with `DEMO_USER_EMAIL`/`DEMO_USER_PASSWORD`, and check all five
-sections load with real data and an AI insight. If the AI insight fails, check the Render logs for
-Gemini's free-tier rate limit (20 requests/day for `gemini-2.5-flash`): the endpoint returns a
-clean 503 in that case rather than a bare error.
+sections load with real data and an AI insight. If the AI insight fails, check the Render logs:
+a raw HTML 403 from Google means the `INSIGHT_PROXY_URL`/`INSIGHT_PROXY_SECRET` pairing (step 4a)
+isn't set correctly on one side or the other; Gemini's free-tier rate limit (20 requests/day for
+`gemini-2.5-flash`) is the other realistic failure, and returns a clean 503 either way rather than
+a bare error.
 
 ## Caveat: Render's free Postgres expires
 
