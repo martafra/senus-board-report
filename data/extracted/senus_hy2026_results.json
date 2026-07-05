@@ -1,0 +1,117 @@
+{
+  "source_document": {
+    "filename": "Senus_HalfYearResults_HY2026_2026-03-19.pdf",
+    "doc_type": "HALF_YEAR_RESULTS",
+    "published_date": "2026-03-19",
+    "url": null
+  },
+  "periods": [
+    {
+      "label": "HY2026",
+      "period_type": "HALF_YEAR",
+      "fiscal_year": 2026,
+      "start_date": "2025-07-01",
+      "end_date": "2025-12-31",
+      "is_actual_reported": true
+    },
+    {
+      "label": "HY2025",
+      "period_type": "HALF_YEAR",
+      "fiscal_year": 2025,
+      "start_date": "2024-07-01",
+      "end_date": "2024-12-31",
+      "is_actual_reported": true
+    },
+    {
+      "label": "FY2025",
+      "period_type": "ANNUAL",
+      "fiscal_year": 2025,
+      "start_date": "2024-07-01",
+      "end_date": "2025-06-30",
+      "is_actual_reported": true
+    }
+  ],
+  "facts": [
+    {"period_label": "HY2026", "metric_key": "revenue", "value": 354813.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "cost_of_sales", "value": 64861.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "gross_profit", "value": 289952.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "admin_expenses", "value": 781975.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "other_operating_income", "value": 8269.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "operating_profit", "value": -483753.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "interest_expense", "value": 1391.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "profit_before_tax", "value": -485144.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "tax_expense", "value": 0.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "profit_after_tax", "value": -485144.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "gross_margin", "value": 81.7, "note": "percentage, as stated"},
+    {"period_label": "HY2026", "metric_key": "goodwill", "value": 669550.0, "note": "Loamin acquisition"},
+    {"period_label": "HY2026", "metric_key": "development_costs", "value": 239765.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "tangible_assets", "value": 42006.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "debtors", "value": 188149.0, "note": "Balance sheet 'Debtors' aggregate total, not the trade-only sub-line"},
+    {"period_label": "HY2026", "metric_key": "cash_end", "value": 735189.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "creditors_current", "value": -387105.0, "note": "Creditors falling due within one year, aggregate total"},
+    {"period_label": "HY2026", "metric_key": "contingent_consideration", "value": -850000.0, "note": "Loamin earn-out, performance-linked"},
+    {"period_label": "HY2026", "metric_key": "creditors_over_one_year", "value": -76474.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "net_assets", "value": 561081.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "share_capital", "value": 25000.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "share_premium", "value": 300000.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "retained_earnings", "value": 236081.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "depreciation", "value": 10014.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "cash_operating", "value": -410291.0, "note": "Net Cash used in operating activities (after interest paid)"},
+    {"period_label": "HY2026", "metric_key": "cash_investing", "value": -8500.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "cash_financing", "value": 1013846.0, "note": "Net Cash inflow from financing activities"},
+    {"period_label": "HY2026", "metric_key": "cash_financing_loans", "value": -124837.0, "note": "Repayment of loans, component of cash_financing"},
+    {"period_label": "HY2026", "metric_key": "cash_financing_share_issue", "value": 1138683.0, "note": "Issue of new shares, component of cash_financing"},
+    {"period_label": "HY2026", "metric_key": "cash_start", "value": 140135.0, "note": null},
+    {"period_label": "HY2026", "metric_key": "new_customers_period_enterprise", "value": 21.0, "note": "Enterprise customers closed in the period, not a total headcount"},
+    {"period_label": "HY2026", "metric_key": "new_bookings_value_period", "value": 700000.0, "note": "Approx., per company disclosure: pipeline deals of approx. EUR700k across 21 enterprise customers closed in the period"},
+    {"period_label": "HY2026", "metric_key": "open_pipeline_value", "value": 500000.0, "note": "Approx., further open pipeline disclosed as at reporting date"},
+
+    {"period_label": "HY2025", "metric_key": "revenue", "value": 340931.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "cost_of_sales", "value": 69600.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "gross_profit", "value": 272331.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "admin_expenses", "value": 677908.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "other_operating_income", "value": 0.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "operating_profit", "value": -405577.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "interest_expense", "value": 1036.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "profit_before_tax", "value": -406613.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "tax_expense", "value": 0.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "profit_after_tax", "value": -406613.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "gross_margin", "value": 79.8, "note": "percentage, as stated"},
+    {"period_label": "HY2025", "metric_key": "goodwill", "value": 0.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "development_costs", "value": 0.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "tangible_assets", "value": 65363.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "debtors", "value": 211150.0, "note": "Balance sheet 'Debtors' aggregate total, not the trade-only sub-line"},
+    {"period_label": "HY2025", "metric_key": "cash_end", "value": 72382.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "creditors_current", "value": -90111.0, "note": "Creditors falling due within one year, aggregate total"},
+    {"period_label": "HY2025", "metric_key": "creditors_over_one_year", "value": -85468.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "net_assets", "value": 173316.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "share_capital", "value": 144.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "share_premium", "value": 849963.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "retained_earnings", "value": -676790.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "depreciation", "value": 10016.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "cash_operating", "value": -450181.0, "note": "Net Cash used in operating activities (after interest paid)"},
+    {"period_label": "HY2025", "metric_key": "cash_investing", "value": 0.0, "note": null},
+    {"period_label": "HY2025", "metric_key": "cash_financing", "value": 97924.0, "note": "Net Cash inflow from financing activities"},
+    {"period_label": "HY2025", "metric_key": "cash_financing_loans", "value": 97924.0, "note": "Receipt of loans, component of cash_financing"},
+    {"period_label": "HY2025", "metric_key": "cash_financing_share_issue", "value": 0.0, "note": "Issue of new shares, component of cash_financing"},
+    {"period_label": "HY2025", "metric_key": "cash_start", "value": 424639.0, "note": null},
+
+    {"period_label": "FY2025", "metric_key": "revenue", "value": 836991.0, "note": "Restated in this document's 'Notes to editors', matches the Information Document"}
+  ],
+  "customer_metrics": [],
+  "kpi_targets": [
+    {
+      "name": "Revenue CAGR",
+      "target_value": 50.0,
+      "target_date": "2030-06-30",
+      "description": "Senus 2030: grow sales of Natural Capital solutions at a compound annual growth rate of no less than 50%, 2026-2030."
+    },
+    {
+      "name": "EBITDA Positive",
+      "target_value": 0.0,
+      "target_date": "2028-06-30",
+      "description": "Company is anticipating becoming EBITDA positive during FY2028."
+    }
+  ],
+  "debt_instruments": []
+}

@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 venv/
 *.egg-info/
+.pytest_cache/
 
 # Node / frontend
 node_modules/
@@ -23,3 +24,6 @@ dist/
 
 # Data / logs
 *.log
+
+# Local Postgres data (bind-mounted, see docker-compose.yml)
+.pgdata/

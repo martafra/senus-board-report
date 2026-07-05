@@ -1,0 +1,733 @@
+{
+  "source_document": {
+    "filename": "ADF_Farm_Solutions_Audited_Financial_Statements_2025-06-30.pdf",
+    "doc_type": "AUDITED_ANNUAL_REPORT",
+    "published_date": "2025-11-19",
+    "url": null
+  },
+  "periods": [
+    {
+      "label": "FY2025",
+      "period_type": "ANNUAL",
+      "fiscal_year": 2025,
+      "start_date": "2024-07-01",
+      "end_date": "2025-06-30",
+      "is_actual_reported": true
+    },
+    {
+      "label": "FY2024",
+      "period_type": "ANNUAL",
+      "fiscal_year": 2024,
+      "start_date": "2023-07-01",
+      "end_date": "2024-06-30",
+      "is_actual_reported": true
+    }
+  ],
+  "facts": [
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue",
+      "value": 836991.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cost_of_sales",
+      "value": 188541.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "gross_profit",
+      "value": 648450.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "distribution_costs",
+      "value": 1084.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "admin_expenses",
+      "value": 1286058.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "other_operating_income",
+      "value": 4998.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "operating_profit",
+      "value": -633694.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "other_gains_and_losses",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "interest_expense",
+      "value": 2074.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "profit_before_tax",
+      "value": -635768.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tax_expense",
+      "value": 45512.0,
+      "note": "Sign convention: positive = net tax credit added to profit_before_tax to reach profit_after_tax (this company has R&D credits exceeding its tax charge); negative would mean a net tax cost"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "profit_after_tax",
+      "value": -590256.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tangible_assets",
+      "value": 48788.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "debtors",
+      "value": 123003.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_end",
+      "value": 140135.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_current",
+      "value": -243846.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_over_one_year",
+      "value": -83655.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "share_capital",
+      "value": 144.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "share_premium",
+      "value": 849962.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "retained_earnings",
+      "value": -865681.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "net_assets",
+      "value": -15575.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "depreciation",
+      "value": 20381.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_operating",
+      "value": -374820.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_investing",
+      "value": -3451.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_financing",
+      "value": 93767.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_start",
+      "value": 424639.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_financing_new_loans",
+      "value": 100000.0,
+      "note": "New loan drawn down in the period, component of cash_financing"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_financing_loans_repayment",
+      "value": -6233.0,
+      "note": "Repayment of an existing loan, component of cash_financing"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_financing_connected_parties_advances",
+      "value": 0.0,
+      "note": "Advances from connected parties, component of cash_financing"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tangible_assets_acquisition",
+      "value": -4451.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tangible_assets_disposal_proceeds",
+      "value": 1000.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tax_paid",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tax_repaid",
+      "value": 28428.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "movement_in_debtors",
+      "value": 68811.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "movement_in_creditors",
+      "value": 143656.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "tangible_assets_disposal_profit_loss",
+      "value": -328.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "research_and_development",
+      "value": 20695.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "loss_on_foreign_currencies",
+      "value": 4152.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "employee_count_average",
+      "value": 18.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "trade_debtors",
+      "value": 66990.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "debtors_taxation",
+      "value": 51032.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "debtors_prepayments",
+      "value": 6.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "debtors_accrued_income",
+      "value": 4975.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_current_credit_institutions",
+      "value": 10112.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "trade_creditors",
+      "value": 55246.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_current_taxation",
+      "value": 28758.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_current_directors_accounts",
+      "value": 133013.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_current_other",
+      "value": 4599.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "creditors_current_accruals",
+      "value": 12118.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "bank_loan_over_one_year",
+      "value": 83655.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "loans_repayable_one_year_or_less",
+      "value": 10112.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "loans_repayable_one_to_two_years",
+      "value": 10500.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "loans_repayable_two_to_five_years",
+      "value": 34500.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "loans_repayable_five_years_plus",
+      "value": 38655.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "directors_remuneration",
+      "value": 213485.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "directors_pension_contributions",
+      "value": 10437.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "repayable_to_directors_anthony_childs",
+      "value": 50000.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "repayable_to_directors_gerard_keenan",
+      "value": 83013.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "revenue",
+      "value": 688317.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cost_of_sales",
+      "value": 255840.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "gross_profit",
+      "value": 432477.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "distribution_costs",
+      "value": 2353.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "admin_expenses",
+      "value": 1560853.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "other_operating_income",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "operating_profit",
+      "value": -1130729.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "other_gains_and_losses",
+      "value": 319.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "interest_expense",
+      "value": 48.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "profit_before_tax",
+      "value": -1130458.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tax_expense",
+      "value": 32363.0,
+      "note": "Sign convention: positive = net tax credit added to profit_before_tax to reach profit_after_tax (this company has R&D credits exceeding its tax charge); negative would mean a net tax cost"
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "profit_after_tax",
+      "value": -1098095.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tangible_assets",
+      "value": 65390.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "debtors",
+      "value": 174730.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_end",
+      "value": 424639.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_current",
+      "value": -90078.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_over_one_year",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "share_capital",
+      "value": 144.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "share_premium",
+      "value": 849962.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "retained_earnings",
+      "value": -275425.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "net_assets",
+      "value": 574681.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "depreciation",
+      "value": 19412.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_operating",
+      "value": -1166697.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_investing",
+      "value": -33472.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_financing",
+      "value": -3846.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_start",
+      "value": 1628654.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_financing_new_loans",
+      "value": 0.0,
+      "note": "New loan drawn down in the period, component of cash_financing"
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_financing_loans_repayment",
+      "value": -4360.0,
+      "note": "Repayment of an existing loan, component of cash_financing"
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_financing_connected_parties_advances",
+      "value": 514.0,
+      "note": "Advances from connected parties, component of cash_financing"
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tangible_assets_acquisition",
+      "value": -37350.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tangible_assets_disposal_proceeds",
+      "value": 3878.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tax_paid",
+      "value": -14884.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tax_repaid",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "movement_in_debtors",
+      "value": -33472.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "movement_in_creditors",
+      "value": -6976.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "tangible_assets_disposal_profit_loss",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "research_and_development",
+      "value": 8876.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "loss_on_foreign_currencies",
+      "value": 430.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "foreign_exchange_gains_losses",
+      "value": 319.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "employee_count_average",
+      "value": 19.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "trade_debtors",
+      "value": 142361.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "debtors_taxation",
+      "value": 32363.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "debtors_prepayments",
+      "value": 6.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "debtors_accrued_income",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_current_credit_institutions",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "trade_creditors",
+      "value": 26768.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_current_taxation",
+      "value": 55085.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_current_directors_accounts",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_current_other",
+      "value": 6105.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "creditors_current_accruals",
+      "value": 2120.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "bank_loan_over_one_year",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "loans_repayable_one_year_or_less",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "loans_repayable_one_to_two_years",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "loans_repayable_two_to_five_years",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "loans_repayable_five_years_plus",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "directors_remuneration",
+      "value": 312988.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "directors_pension_contributions",
+      "value": 21370.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "repayable_to_directors_anthony_childs",
+      "value": 0.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "repayable_to_directors_gerard_keenan",
+      "value": 0.0,
+      "note": null
+    }
+  ],
+  "customer_metrics": [],
+  "kpi_targets": [],
+  "debt_instruments": []
+}

@@ -1,0 +1,394 @@
+{
+  "source_document": {
+    "filename": "Senus_PLC_Information_Document_2025-12.pdf",
+    "doc_type": "INFORMATION_DOCUMENT",
+    "published_date": "2025-12-17",
+    "url": "https://live.euronext.com/sites/default/files/2025-12/SENUS%20PLC%20-%20Information%20Document.pdf"
+  },
+  "periods": [
+    {
+      "label": "FY2024",
+      "period_type": "ANNUAL",
+      "fiscal_year": 2024,
+      "start_date": "2023-07-01",
+      "end_date": "2024-06-30",
+      "is_actual_reported": true
+    },
+    {
+      "label": "FY2025",
+      "period_type": "ANNUAL",
+      "fiscal_year": 2025,
+      "start_date": "2024-07-01",
+      "end_date": "2025-06-30",
+      "is_actual_reported": true
+    }
+  ],
+  "facts": [
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue",
+      "value": 836991.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "gross_profit",
+      "value": 648450.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "operating_profit",
+      "value": -633694.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "profit_after_tax",
+      "value": -590256.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "net_assets",
+      "value": -15575.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "retained_earnings",
+      "value": -865681.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_operating",
+      "value": -374820.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_investing",
+      "value": -3451.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_financing",
+      "value": 93767.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_start",
+      "value": 424639.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "cash_end",
+      "value": 140135.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "revenue",
+      "value": 688317.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "gross_profit",
+      "value": 432477.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "operating_profit",
+      "value": -1130729.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "profit_after_tax",
+      "value": -1098095.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "net_assets",
+      "value": 574681.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "retained_earnings",
+      "value": -275425.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_operating",
+      "value": -1166697.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_investing",
+      "value": -33472.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_financing",
+      "value": -3846.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_start",
+      "value": 1628654.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2024",
+      "metric_key": "cash_end",
+      "value": 424639.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "admin_expenses",
+      "value": 1286058.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_ireland",
+      "value": 78.0,
+      "note": "Approx 22% of revenue from outside Ireland"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_soil_enterprise",
+      "value": 320037.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_soil_independent",
+      "value": 35953.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_soil_rd",
+      "value": 76468.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_ireland_soil",
+      "value": 81.7,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_uk_soil",
+      "value": 0.6,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_row_soil",
+      "value": 17.7,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_terrain_enterprise",
+      "value": 193713.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_terrain_rd",
+      "value": 145236.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_ireland_terrain",
+      "value": 68.4,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_uk_terrain",
+      "value": 26.3,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_row_terrain",
+      "value": 5.3,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_era_enterprise",
+      "value": 58900.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "revenue_pct_ireland_era",
+      "value": 100.0,
+      "note": "Percentage"
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "customers_soil_enterprise",
+      "value": 26.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "customers_soil_independent",
+      "value": 98.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "customers_soil_rd",
+      "value": 2.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "acv_soil_enterprise",
+      "value": 12309.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "acv_soil_independent",
+      "value": 367.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "acv_soil_rd",
+      "value": 38234.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "customers_terrain_enterprise",
+      "value": 9.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "customers_terrain_rd",
+      "value": 2.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "acv_terrain_enterprise",
+      "value": 21524.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "acv_terrain_rd",
+      "value": 72618.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "customers_era_enterprise",
+      "value": 1.0,
+      "note": null
+    },
+    {
+      "period_label": "FY2025",
+      "metric_key": "acv_era_enterprise",
+      "value": 58900.0,
+      "note": null
+    }
+  ],
+  "customer_metrics": [
+    {
+      "period_label": "FY2025",
+      "channel": "ENTERPRISE",
+      "customer_count": 36,
+      "avg_acv": null
+    },
+    {
+      "period_label": "FY2025",
+      "channel": "INDEPENDENT",
+      "customer_count": 98,
+      "avg_acv": null
+    },
+    {
+      "period_label": "FY2025",
+      "channel": "RD",
+      "customer_count": 4,
+      "avg_acv": null
+    }
+  ],
+  "kpi_targets": [
+    {
+      "name": "Revenue CAGR",
+      "target_value": 50.0,
+      "target_date": "2030-06-30",
+      "description": "Compound annual growth rate of revenue for Natural Capital solutions."
+    },
+    {
+      "name": "EBITDA Positive",
+      "target_value": 0.0,
+      "target_date": "2028-06-30",
+      "description": "Achieve positive EBITDA."
+    },
+    {
+      "name": "Enterprise Customer Count",
+      "target_value": 100.0,
+      "target_date": "2030-06-30",
+      "description": "Number of Enterprise customers."
+    },
+    {
+      "name": "Enterprise ACV",
+      "target_value": 50000.0,
+      "target_date": "2030-06-30",
+      "description": "Average Annual Contract Value for Enterprise Customers."
+    },
+    {
+      "name": "Revenue from Ireland percentage",
+      "target_value": 50.0,
+      "target_date": "2030-06-30",
+      "description": "Percentage of total revenue generated from Ireland."
+    }
+  ],
+  "debt_instruments": [
+    {
+      "name": "Working Capital Loan - Anthony Childs",
+      "principal": 100000.0,
+      "start_date": "2025-03-01",
+      "provider": "Anthony Childs"
+    },
+    {
+      "name": "Working Capital Loan - Gerard Keenan",
+      "principal": 70000.0,
+      "start_date": "2025-03-01",
+      "provider": "Gerard Keenan"
+    },
+    {
+      "name": "SBCI backed term loan",
+      "principal": 100000.0,
+      "start_date": "2024-07-01",
+      "provider": "SBCI"
+    }
+  ]
+}

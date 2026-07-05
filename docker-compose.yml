@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - senus_pgdata:/var/lib/postgresql/data
+      - ./.pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U senus"]
       interval: 5s
@@ -24,6 +24,10 @@ services:
       - .env
     environment:
       DATABASE_URL: postgresql+asyncpg://senus:senus@db:5432/senus_board_report
+      DATA_DIR: /data
+      # The container runs as root; without this it writes root-owned __pycache__ files into the
+      # bind-mounted ./apps/api, which then blocks local (non-root) use of the same directory.
+      PYTHONDONTWRITEBYTECODE: "1"
     ports:
       - "8000:8000"
     volumes:
@@ -33,6 +37,3 @@ services:
       db:
         condition: service_healthy
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-
-volumes:
-  senus_pgdata:
