@@ -2,6 +2,7 @@ services:
   - type: web
     name: senus-board-report-api
     runtime: docker
+    region: frankfurt
     dockerfilePath: apps/api/Dockerfile
     dockerContext: .
     plan: free
