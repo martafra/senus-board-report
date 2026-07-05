@@ -64,6 +64,33 @@ async def test_working_capital_combines_debtors_cash_and_current_creditors(sessi
     assert results[0].metrics["working_capital"].value == 50000.0 + 60000.0 - 30000.0
 
 
+async def test_ebitda_to_fcf_bridge_steps_sum_to_free_cash_flow(session_factory):
+    async with session_factory() as session:
+        await add_annual_period(
+            session,
+            label="FY2025",
+            fiscal_year=2025,
+            facts={
+                "operating_profit": -633694.0,
+                "depreciation": 20381.0,
+                "cash_operating": -374820.0,
+                "cash_investing": -3451.0,
+            },
+        )
+
+    async with session_factory() as session:
+        results = await compute_cash_liquidity(session)
+
+    metrics = results[0].metrics
+    ebitda = metrics["ebitda"].value
+    adjustments = metrics["operating_cash_adjustments"].value
+    investing = metrics["cash_investing"].value
+    fcf = metrics["free_cash_flow"].value
+
+    assert investing == -3451.0
+    assert round(ebitda + adjustments + investing, 2) == fcf
+
+
 async def test_cash_liquidity_endpoint_requires_auth(client):
     response = await client.get("/metrics/cash-liquidity")
     assert response.status_code == 401

@@ -21,6 +21,9 @@ DESCRIPTIONS = {
         "day-to-day operating performance on its own, regardless of how the company is financed."
     ),
     "ebitda_margin": "EBITDA as a percentage of revenue.",
+    "cost_of_sales": "The direct cost of delivering what was sold, e.g. hosting and delivery costs.",
+    "admin_expenses": "Running costs of the business not directly tied to a sale, e.g. salaries, rent, professional fees.",
+    "distribution_costs": "Costs of marketing and selling the product to customers.",
     "yoy_growth": "How much this figure changed compared to the same period one year earlier.",
     "mom_growth": "How much this figure changed compared to the previous month.",
     "customers_enterprise": "Number of Enterprise customer accounts.",
@@ -33,6 +36,11 @@ DESCRIPTIONS = {
         "Cash generated (or used) by the business after paying for its day-to-day operations and "
         "its investment in equipment: what's actually left over in the bank."
     ),
+    "operating_cash_adjustments": (
+        "The gap between EBITDA and the cash the business actually generated from operations: "
+        "movements in money owed to/by the company, plus interest and tax paid in the period."
+    ),
+    "cash_investing": "Cash spent on (or received from) equipment and other long-term investments in the period.",
     "cash_runway_months": (
         "At the current rate of spending more cash than it brings in, how many months of cash the "
         "company has left before running out."
@@ -132,7 +140,7 @@ def _find_facts(
 
 
 async def compute_profitability(session: AsyncSession) -> list[PeriodMetrics]:
-    """Gross/operating/EBITDA margin per ANNUAL and HALF_YEAR period."""
+    """Gross/operating/EBITDA margin, plus a cost breakdown, per ANNUAL and HALF_YEAR period."""
     facts_by_period = await _facts_by_period(session, [PeriodType.ANNUAL, PeriodType.HALF_YEAR])
 
     output = []
@@ -153,6 +161,11 @@ async def compute_profitability(session: AsyncSession) -> list[PeriodMetrics]:
             metrics["ebitda"] = _amount(ebitda, DESCRIPTIONS["ebitda"])
             if revenue:
                 metrics["ebitda_margin"] = _percent(ebitda, revenue, DESCRIPTIONS["ebitda_margin"])
+
+        for cost_key in ("cost_of_sales", "admin_expenses", "distribution_costs"):
+            value = facts.get(cost_key)
+            if value is not None:
+                metrics[cost_key] = _amount(value, DESCRIPTIONS[cost_key])
 
         output.append(_period_metrics(period, metrics))
     return output
@@ -222,9 +235,12 @@ async def _customer_counts_by_period(session: AsyncSession) -> dict[int, dict[st
 
 
 async def compute_cash_liquidity(session: AsyncSession) -> list[PeriodMetrics]:
-    """EBITDA-to-Free-Cash-Flow (free_cash_flow = cash_operating + cash_investing, both REPORTED),
-    cash runway in months (only when the business is actually burning cash), and working capital
-    (only for ANNUAL/HALF_YEAR periods, where debtors/creditors_current are disclosed)."""
+    """EBITDA-to-Free-Cash-Flow bridge: ebitda, operating_cash_adjustments (the working
+    capital/interest/tax gap between EBITDA and cash_operating), cash_investing, and
+    free_cash_flow (= cash_operating + cash_investing) sum together consistently so the frontend
+    can chart the walk from one to the other. Also cash runway in months (only when the business
+    is actually burning cash), and working capital (only for ANNUAL/HALF_YEAR periods, where
+    debtors/creditors_current are disclosed)."""
     facts_by_period = await _facts_by_period(session, [PeriodType.ANNUAL, PeriodType.HALF_YEAR])
 
     output = []
@@ -240,6 +256,11 @@ async def compute_cash_liquidity(session: AsyncSession) -> list[PeriodMetrics]:
             metrics["free_cash_flow"] = _amount(
                 cash_operating + cash_investing, DESCRIPTIONS["free_cash_flow"]
             )
+            metrics["cash_investing"] = _amount(cash_investing, DESCRIPTIONS["cash_investing"])
+            if ebitda is not None:
+                metrics["operating_cash_adjustments"] = _amount(
+                    cash_operating - ebitda, DESCRIPTIONS["operating_cash_adjustments"]
+                )
 
         cash_end = facts.get("cash_end")
         if cash_operating is not None and cash_operating < 0 and cash_end is not None:

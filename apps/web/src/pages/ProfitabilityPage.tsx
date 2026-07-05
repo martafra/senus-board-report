@@ -21,6 +21,9 @@ const COLUMNS: MetricColumn[] = [
   { key: 'operating_margin', label: 'Operating Margin' },
   { key: 'ebitda', label: 'EBITDA' },
   { key: 'ebitda_margin', label: 'EBITDA Margin' },
+  { key: 'cost_of_sales', label: 'Cost of Sales' },
+  { key: 'admin_expenses', label: 'Admin Expenses' },
+  { key: 'distribution_costs', label: 'Distribution Costs' },
 ]
 
 export function ProfitabilityPage() {

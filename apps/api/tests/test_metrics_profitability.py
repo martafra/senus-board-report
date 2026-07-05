@@ -51,6 +51,32 @@ async def test_compute_profitability_omits_ebitda_without_depreciation_fact(sess
     assert "gross_margin" in results[0].metrics  # unaffected, doesn't need depreciation
 
 
+async def test_compute_profitability_includes_cost_breakdown_when_disclosed(session_factory):
+    async with session_factory() as session:
+        await add_annual_period(
+            session,
+            label="FY2025",
+            fiscal_year=2025,
+            facts={
+                "revenue": 836991.0,
+                "gross_profit": 648450.0,
+                "operating_profit": -633694.0,
+                "cost_of_sales": 188541.0,
+                "admin_expenses": 1286058.0,
+                # no distribution_costs fact for this period: not disclosed
+            },
+        )
+
+    async with session_factory() as session:
+        results = await compute_profitability(session)
+
+    metrics = results[0].metrics
+    assert metrics["cost_of_sales"].value == 188541.0
+    assert metrics["cost_of_sales"].unit == "EUR"
+    assert metrics["admin_expenses"].value == 1286058.0
+    assert "distribution_costs" not in metrics
+
+
 async def test_profitability_endpoint_requires_auth(client):
     response = await client.get("/metrics/profitability")
     assert response.status_code == 401

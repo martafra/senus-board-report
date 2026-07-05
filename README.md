@@ -103,9 +103,14 @@ Once the pipeline above has loaded data, the API serves it as computed board met
 - `POST /auth/login`, `GET /auth/me`: JWT login for the seeded demo user (`scripts/seed_user.py`).
 - `GET /metrics/growth`: revenue, YoY growth (any period type, vs. the same period a year earlier),
   MoM growth (MONTHLY only), customer counts by channel, bookings.
-- `GET /metrics/profitability`: gross/operating/EBITDA margin. EBITDA = `operating_profit +
-  depreciation`, both REPORTED facts, so no assumed D&A figure is needed for periods loaded so far.
-- `GET /metrics/cash-liquidity`: EBITDA, Free Cash Flow (`cash_operating + cash_investing`), cash
+- `GET /metrics/profitability`: gross/operating/EBITDA margin, plus a cost breakdown
+  (`cost_of_sales`, `admin_expenses`, `distribution_costs`, each shown only for periods that
+  disclose it). EBITDA = `operating_profit + depreciation`, both REPORTED facts, so no assumed D&A
+  figure is needed for periods loaded so far.
+- `GET /metrics/cash-liquidity`: an EBITDA-to-Free-Cash-Flow bridge (`ebitda`,
+  `operating_cash_adjustments` = `cash_operating - ebitda`, `cash_investing`, `free_cash_flow` =
+  `cash_operating + cash_investing`; the four sum together consistently, so the frontend charts the
+  walk from one to the other as a waterfall rather than showing two disconnected numbers), cash
   runway in months (only shown while actually burning cash), working capital.
 - `GET /metrics/solvency`: Debt Service Coverage Ratio. ANNUAL periods only: half-year releases
   haven't disclosed the loan repayment schedule this needs, so it isn't approximated at that
@@ -164,6 +169,10 @@ Each section page shows:
 The Growth & Revenue page additionally shows a `KPITargetsPanel` (Senus's disclosed 2030 targets),
 and the Solvency & Leverage page a `DebtInstrumentsPanel` (the company's disclosed debt, each
 badged Outstanding or Repaid, with the repayment date behind an info tooltip for any that are).
+The Cash & Liquidity page additionally shows an `EbitdaToFcfBridge`: a small waterfall chart for
+the most recent period with complete data, walking from EBITDA through the working-capital/
+interest/tax adjustment and investing cash flow to Free Cash Flow, so the connection between the
+two headline figures is a reconciliation a reader can see, not just two numbers side by side.
 
 Data fetching goes through TanStack Query calling the API above.
 
