@@ -11,6 +11,9 @@ import { useMetrics } from '@/hooks/useMetrics'
 import { SectionState } from '@/components/SectionState'
 import { MetricsTable, type MetricColumn } from '@/components/MetricsTable'
 import { InsightPanel } from '@/components/InsightPanel'
+import { SectionHeading } from '@/components/SectionHeading'
+
+const ACCENT = 'var(--color-chart-5)'
 
 const COLUMNS: MetricColumn[] = [{ key: 'roce', label: 'ROCE' }]
 
@@ -19,7 +22,7 @@ export function ReturnsPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-semibold">Returns</h2>
+      <SectionHeading color={ACCENT}>Returns</SectionHeading>
       <InsightPanel section="returns" />
       <SectionState isLoading={isLoading} error={error} data={data}>
         {(periods) => {
@@ -36,7 +39,7 @@ export function ReturnsPage() {
                     <XAxis dataKey="period" />
                     <YAxis />
                     <RechartsTooltip />
-                    <Bar dataKey="roce" name="ROCE (%)" fill="var(--color-primary)" />
+                    <Bar dataKey="roce" name="ROCE (%)" fill={ACCENT} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

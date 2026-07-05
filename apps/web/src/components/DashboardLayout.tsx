@@ -3,11 +3,11 @@ import { Button } from '@/components/ui/button'
 import { useAuth } from '@/hooks/useAuth'
 
 const SECTIONS = [
-  { to: '/', label: 'Growth & Revenue', end: true },
-  { to: '/profitability', label: 'Profitability' },
-  { to: '/cash-liquidity', label: 'Cash & Liquidity' },
-  { to: '/solvency', label: 'Solvency & Leverage' },
-  { to: '/returns', label: 'Returns' },
+  { to: '/dashboard', label: 'Growth & Revenue', end: true },
+  { to: '/dashboard/profitability', label: 'Profitability' },
+  { to: '/dashboard/cash-liquidity', label: 'Cash & Liquidity' },
+  { to: '/dashboard/solvency', label: 'Solvency & Leverage' },
+  { to: '/dashboard/returns', label: 'Returns' },
 ]
 
 export function DashboardLayout() {

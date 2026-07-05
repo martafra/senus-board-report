@@ -36,6 +36,7 @@ Rules:
   rather than presenting it with the same certainty as a REPORTED one.
 - Focus on the clearest trend across periods (improving, worsening, or stable) and the single most
   useful thing a board member should take away, rather than restating every number.
+- Never use em dashes. Use commas, full stops or parentheses instead.
 """
 
 

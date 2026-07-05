@@ -11,7 +11,10 @@ import { useMetrics } from '@/hooks/useMetrics'
 import { SectionState } from '@/components/SectionState'
 import { MetricsTable, type MetricColumn } from '@/components/MetricsTable'
 import { InsightPanel } from '@/components/InsightPanel'
+import { SectionHeading } from '@/components/SectionHeading'
 import { formatTooltipNumber } from '@/lib/format'
+
+const ACCENT = 'var(--color-chart-2)'
 
 const COLUMNS: MetricColumn[] = [
   { key: 'gross_margin', label: 'Gross Margin' },
@@ -25,7 +28,7 @@ export function ProfitabilityPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-semibold">Profitability</h2>
+      <SectionHeading color={ACCENT}>Profitability</SectionHeading>
       <InsightPanel section="profitability" />
       <SectionState isLoading={isLoading} error={error} data={data}>
         {(periods) => {
@@ -42,7 +45,7 @@ export function ProfitabilityPage() {
                     <XAxis dataKey="period" />
                     <YAxis />
                     <RechartsTooltip formatter={formatTooltipNumber} />
-                    <Bar dataKey="ebitda" name="EBITDA (EUR)" fill="var(--color-primary)" />
+                    <Bar dataKey="ebitda" name="EBITDA (EUR)" fill={ACCENT} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

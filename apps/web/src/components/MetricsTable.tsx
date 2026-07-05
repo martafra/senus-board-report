@@ -60,7 +60,19 @@ export function MetricsTable({
             {columns.map((column) => {
               const metric = period.metrics[column.key]
               return (
-                <TableCell key={column.key}>{metric ? formatMetricValue(metric) : '-'}</TableCell>
+                <TableCell key={column.key}>
+                  {metric ? (
+                    formatMetricValue(metric)
+                  ) : (
+                    <span className="inline-flex items-center gap-1 text-muted-foreground">
+                      -
+                      <InfoTooltip
+                        label="Why is this missing?"
+                        text={`${column.label} was not disclosed for ${period.period_label} in any available filing.`}
+                      />
+                    </span>
+                  )}
+                </TableCell>
               )
             })}
           </TableRow>

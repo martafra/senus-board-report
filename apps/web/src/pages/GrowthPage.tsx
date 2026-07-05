@@ -11,7 +11,11 @@ import { useMetrics } from '@/hooks/useMetrics'
 import { SectionState } from '@/components/SectionState'
 import { MetricsTable, type MetricColumn } from '@/components/MetricsTable'
 import { InsightPanel } from '@/components/InsightPanel'
+import { InfoTooltip } from '@/components/InfoTooltip'
+import { SectionHeading } from '@/components/SectionHeading'
 import { formatTooltipNumber } from '@/lib/format'
+
+const ACCENT = 'var(--color-chart-1)'
 
 const COLUMNS: MetricColumn[] = [
   { key: 'revenue', label: 'Revenue' },
@@ -29,7 +33,7 @@ export function GrowthPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-semibold">Growth & Revenue</h2>
+      <SectionHeading color={ACCENT}>Growth & Revenue</SectionHeading>
       <InsightPanel section="growth" />
       <SectionState isLoading={isLoading} error={error} data={data}>
         {(periods) => {
@@ -42,9 +46,12 @@ export function GrowthPage() {
           return (
             <>
               <div className="h-64 rounded-lg border bg-background p-4">
-                <p className="mb-2 text-xs text-muted-foreground">
-                  Monthly revenue trend. Modelled: split from reported annual/half-year totals, not
-                  itself reported month by month.
+                <p className="mb-2 flex items-center gap-1 text-xs text-muted-foreground">
+                  Monthly revenue trend.
+                  <InfoTooltip
+                    label="Why is this modelled?"
+                    text="Modelled: split from reported annual/half-year totals, not itself reported month by month."
+                  />
                 </p>
                 <ResponsiveContainer width="100%" height="85%">
                   <LineChart data={chartData}>
@@ -56,7 +63,7 @@ export function GrowthPage() {
                       type="monotone"
                       dataKey="revenue"
                       name="Revenue (EUR)"
-                      stroke="var(--color-primary)"
+                      stroke={ACCENT}
                       dot={false}
                     />
                   </LineChart>

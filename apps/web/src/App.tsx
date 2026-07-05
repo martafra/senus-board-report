@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { LandingPage } from '@/pages/LandingPage'
 import { LoginPage } from '@/pages/LoginPage'
 import { GrowthPage } from '@/pages/GrowthPage'
 import { ProfitabilityPage } from '@/pages/ProfitabilityPage'
@@ -11,8 +12,9 @@ import { ProtectedRoute } from '@/routes/ProtectedRoute'
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route element={<ProtectedRoute />}>
+      <Route path="/dashboard" element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
           <Route index element={<GrowthPage />} />
           <Route path="profitability" element={<ProfitabilityPage />} />

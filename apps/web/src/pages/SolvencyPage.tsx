@@ -11,6 +11,9 @@ import { useMetrics } from '@/hooks/useMetrics'
 import { SectionState } from '@/components/SectionState'
 import { MetricsTable, type MetricColumn } from '@/components/MetricsTable'
 import { InsightPanel } from '@/components/InsightPanel'
+import { SectionHeading } from '@/components/SectionHeading'
+
+const ACCENT = 'var(--color-chart-4)'
 
 const COLUMNS: MetricColumn[] = [{ key: 'dscr', label: 'DSCR' }]
 
@@ -19,7 +22,7 @@ export function SolvencyPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-semibold">Solvency & Leverage</h2>
+      <SectionHeading color={ACCENT}>Solvency & Leverage</SectionHeading>
       <InsightPanel section="solvency" />
       <p className="text-xs text-muted-foreground">
         Only shown for full financial years: half-year releases haven't disclosed the loan
@@ -40,7 +43,7 @@ export function SolvencyPage() {
                     <XAxis dataKey="period" />
                     <YAxis />
                     <RechartsTooltip />
-                    <Bar dataKey="dscr" name="DSCR (x)" fill="var(--color-primary)" />
+                    <Bar dataKey="dscr" name="DSCR (x)" fill={ACCENT} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

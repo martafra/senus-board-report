@@ -6,11 +6,17 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
  * be understood without needing a finance background. Triggers on focus (not just hover) so it's
  * reachable by keyboard and works on touch devices.
  */
-export function InfoTooltip({ text }: { text: string }) {
+export function InfoTooltip({
+  text,
+  label = 'What does this mean?',
+}: {
+  text: string
+  label?: string
+}) {
   return (
     <Tooltip>
       <TooltipTrigger
-        aria-label="What does this mean?"
+        aria-label={label}
         className="inline-flex cursor-help text-muted-foreground hover:text-foreground"
       >
         <Info className="size-3.5" />
