@@ -80,6 +80,14 @@ Rules:
   a stable, consistent name for it (e.g. always "Revenue CAGR", always "EBITDA Positive") rather than
   paraphrasing the document's exact wording differently each time. Consistent names are what let two
   documents' extractions be recognised as describing the same target rather than duplicates.
+- A kpi_target's description must state the comparison direction in plain words (e.g. "at least 50%
+  compound annual growth", "fewer than 50% of revenue from Ireland"), not just the bare number. The
+  target_value alone doesn't say whether the goal is to reach at least that number or stay below it,
+  and a reader must not have to guess.
+- A debt_instrument still outstanding as at the document's reporting date gets repaid_date null. If
+  the document states it has been repaid, record repaid_date as the disclosed date. If only a month
+  and year are disclosed (not an exact day), use the last day of that month and say so in "note"
+  (e.g. "Exact repayment day not disclosed; dated to the last day of the disclosed month.").
 - A count of customers gained or contracts closed during a period (a "bookings" figure, e.g. "21
   enterprise customers closed in the period") is different from customer_metrics, which is a
   point-in-time total of accounts held per channel as of the period end date. Record period bookings

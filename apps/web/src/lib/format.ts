@@ -6,6 +6,19 @@ const eurFormatter = new Intl.NumberFormat('en-IE', {
   maximumFractionDigits: 0,
 })
 
+export function formatEur(value: number): string {
+  return eurFormatter.format(value)
+}
+
+/** For an ISO date string (no time component), e.g. "2030-06-30" -> "30 Jun 2030". */
+export function formatDate(isoDate: string): string {
+  return new Date(`${isoDate}T00:00:00`).toLocaleDateString('en-IE', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
 export function formatMetricValue(metric: MetricValue): string {
   switch (metric.unit) {
     case 'EUR':

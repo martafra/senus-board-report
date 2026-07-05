@@ -12,6 +12,7 @@ import { SectionState } from '@/components/SectionState'
 import { MetricsTable, type MetricColumn } from '@/components/MetricsTable'
 import { InsightPanel } from '@/components/InsightPanel'
 import { InfoTooltip } from '@/components/InfoTooltip'
+import { KPITargetsPanel } from '@/components/KPITargetsPanel'
 import { SectionHeading } from '@/components/SectionHeading'
 import { formatTooltipNumber } from '@/lib/format'
 
@@ -35,6 +36,7 @@ export function GrowthPage() {
     <div className="flex flex-col gap-6">
       <SectionHeading color={ACCENT}>Growth & Revenue</SectionHeading>
       <InsightPanel section="growth" />
+      <KPITargetsPanel />
       <SectionState isLoading={isLoading} error={error} data={data}>
         {(periods) => {
           const monthly = periods.filter((period) => period.period_type === 'MONTHLY')

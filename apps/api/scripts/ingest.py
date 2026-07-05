@@ -245,6 +245,8 @@ async def _load(result: ExtractionResult, session_factory=AsyncSessionLocal) -> 
                     principal=d.principal,
                     start_date=date.fromisoformat(d.start_date),
                     provider=d.provider,
+                    repaid_date=date.fromisoformat(d.repaid_date) if d.repaid_date else None,
+                    note=d.note,
                     provenance=Provenance.REPORTED,
                 )
             )

@@ -9,7 +9,7 @@ import * as api from '@/lib/api'
 
 vi.mock('@/lib/api', async () => {
   const actual = await vi.importActual<typeof import('@/lib/api')>('@/lib/api')
-  return { ...actual, fetchMetrics: vi.fn(), fetchInsight: vi.fn() }
+  return { ...actual, fetchMetrics: vi.fn(), fetchInsight: vi.fn(), fetchKPITargets: vi.fn() }
 })
 
 function renderWithProviders(ui: ReactElement) {
@@ -21,8 +21,8 @@ function renderWithProviders(ui: ReactElement) {
   )
 }
 
-// The page also renders an InsightPanel, which makes its own request; give it a resolved (if
-// unused) response so this chart-focused test isn't left waiting on it too.
+// The page also renders an InsightPanel and a KPITargetsPanel, each making its own request; give
+// them resolved (if unused) responses so this chart-focused test isn't left waiting on them too.
 function mockInsightResolved() {
   vi.mocked(api.fetchInsight).mockResolvedValue({
     section_key: 'growth',
@@ -33,9 +33,14 @@ function mockInsightResolved() {
   })
 }
 
+function mockKPITargetsResolved() {
+  vi.mocked(api.fetchKPITargets).mockResolvedValue([])
+}
+
 describe('GrowthPage', () => {
   it('shows the monthly chart caption and reveals the modelled explanation only on hover', async () => {
     mockInsightResolved()
+    mockKPITargetsResolved()
     vi.mocked(api.fetchMetrics).mockResolvedValue([
       {
         period_label: 'Jan 2025',

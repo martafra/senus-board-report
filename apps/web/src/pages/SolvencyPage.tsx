@@ -11,6 +11,7 @@ import { useMetrics } from '@/hooks/useMetrics'
 import { SectionState } from '@/components/SectionState'
 import { MetricsTable, type MetricColumn } from '@/components/MetricsTable'
 import { InsightPanel } from '@/components/InsightPanel'
+import { DebtInstrumentsPanel } from '@/components/DebtInstrumentsPanel'
 import { SectionHeading } from '@/components/SectionHeading'
 
 const ACCENT = 'var(--color-chart-4)'
@@ -24,6 +25,7 @@ export function SolvencyPage() {
     <div className="flex flex-col gap-6">
       <SectionHeading color={ACCENT}>Solvency & Leverage</SectionHeading>
       <InsightPanel section="solvency" />
+      <DebtInstrumentsPanel />
       <p className="text-xs text-muted-foreground">
         Only shown for full financial years: half-year releases haven't disclosed the loan
         repayment schedule this ratio needs.

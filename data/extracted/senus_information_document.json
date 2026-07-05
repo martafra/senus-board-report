@@ -344,31 +344,31 @@
       "name": "Revenue CAGR",
       "target_value": 50.0,
       "target_date": "2030-06-30",
-      "description": "Compound annual growth rate of revenue for Natural Capital solutions."
+      "description": "Target: at least 50% compound annual growth rate of revenue for Natural Capital solutions, FY2026 to FY2030."
     },
     {
       "name": "EBITDA Positive",
       "target_value": 0.0,
       "target_date": "2028-06-30",
-      "description": "Achieve positive EBITDA."
+      "description": "Target: achieve positive EBITDA (greater than zero)."
     },
     {
       "name": "Enterprise Customer Count",
       "target_value": 100.0,
       "target_date": "2030-06-30",
-      "description": "Number of Enterprise customers."
+      "description": "Target: more than 100 Enterprise customer accounts."
     },
     {
       "name": "Enterprise ACV",
       "target_value": 50000.0,
       "target_date": "2030-06-30",
-      "description": "Average Annual Contract Value for Enterprise Customers."
+      "description": "Target: average Annual Contract Value for Enterprise customers greater than EUR50,000."
     },
     {
       "name": "Revenue from Ireland percentage",
       "target_value": 50.0,
       "target_date": "2030-06-30",
-      "description": "Percentage of total revenue generated from Ireland."
+      "description": "Target: fewer than 50% of total revenue generated from Ireland (geographic diversification)."
     }
   ],
   "debt_instruments": [
@@ -376,13 +376,17 @@
       "name": "Working Capital Loan - Anthony Childs",
       "principal": 100000.0,
       "start_date": "2025-03-01",
-      "provider": "Anthony Childs"
+      "provider": "Anthony Childs",
+      "repaid_date": "2025-10-31",
+      "note": "Exact repayment day not disclosed; dated to the last day of the disclosed month (October 2025)."
     },
     {
       "name": "Working Capital Loan - Gerard Keenan",
       "principal": 70000.0,
       "start_date": "2025-03-01",
-      "provider": "Gerard Keenan"
+      "provider": "Gerard Keenan",
+      "repaid_date": "2025-10-31",
+      "note": "Exact repayment day not disclosed; dated to the last day of the disclosed month (October 2025)."
     },
     {
       "name": "SBCI backed term loan",

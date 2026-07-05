@@ -80,4 +80,6 @@ class DebtInstrument(Base, TimestampMixin):
     start_date: Mapped[date] = mapped_column(Date)
     provider: Mapped[str] = mapped_column(String(150))
     rate_assumption: Mapped[Decimal | None] = mapped_column(Numeric(6, 4), nullable=True)
+    repaid_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    note: Mapped[str | None] = mapped_column(Text, nullable=True)
     provenance: Mapped[Provenance] = mapped_column(SAEnum(Provenance, name="provenance"))

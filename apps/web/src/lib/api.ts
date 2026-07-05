@@ -108,3 +108,28 @@ export function fetchInsight(section: MetricsSection): Promise<Insight> {
 export function regenerateInsight(section: MetricsSection): Promise<Insight> {
   return apiPost<Insight>(`/insights/${section}/regenerate`)
 }
+
+// Mirrors app/schemas/targets.py on the backend.
+export interface KPITarget {
+  name: string
+  target_value: number
+  target_date: string
+  description: string
+}
+
+export interface DebtInstrument {
+  name: string
+  principal: number
+  start_date: string
+  provider: string
+  repaid_date: string | null
+  note: string | null
+}
+
+export function fetchKPITargets(): Promise<KPITarget[]> {
+  return apiGet<KPITarget[]>('/targets/kpi')
+}
+
+export function fetchDebtInstruments(): Promise<DebtInstrument[]> {
+  return apiGet<DebtInstrument[]>('/targets/debt')
+}

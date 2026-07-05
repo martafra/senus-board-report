@@ -112,6 +112,15 @@ Once the pipeline above has loaded data, the API serves it as computed board met
   granularity, it's simply not shown.
 - `GET /metrics/returns`: Return on Capital Employed (`operating_profit / (Total Assets - Current
   Liabilities)`), using period-end balances built from the disclosed asset facts.
+- `GET /targets/kpi`: Senus's own disclosed 2030 strategic targets (Revenue CAGR, EBITDA-positive
+  date, Enterprise customer count, Enterprise ACV, Ireland revenue share), ordered by target date.
+  Shown on the Growth & Revenue page so actual performance can be judged against the company's own
+  stated goals, not just against last year.
+- `GET /targets/debt`: the company's disclosed debt instruments (name, principal, provider, drawn
+  date), each flagged Outstanding or Repaid. Two director working-capital loans were repaid in
+  October 2025 (exact day not disclosed by the source document, so dated to the last day of that
+  month, noted as such); shown on the Solvency & Leverage page alongside DSCR so a repaid loan
+  doesn't read as if it's still part of the company's debt burden.
 
 Every metric response includes a plain-language `description` (meant for a UI tooltip) and every
 period carries `is_actual_reported` (REPORTED vs MODELLED), so the frontend can badge each figure
@@ -151,6 +160,10 @@ Each section page shows:
   per metric column explaining what it means, and the same tooltip pattern on any blank cell
   explaining why that figure wasn't disclosed for that period, rather than leaving an unexplained
   dash.
+
+The Growth & Revenue page additionally shows a `KPITargetsPanel` (Senus's disclosed 2030 targets),
+and the Solvency & Leverage page a `DebtInstrumentsPanel` (the company's disclosed debt, each
+badged Outstanding or Repaid, with the repayment date behind an info tooltip for any that are).
 
 Data fetching goes through TanStack Query calling the API above.
 

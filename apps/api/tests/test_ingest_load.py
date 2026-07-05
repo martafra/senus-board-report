@@ -1,8 +1,9 @@
 from sqlalchemy import select
 
-from app.models import FinancialFact, FinancialPeriod, KPITarget, SourceDocument
+from app.models import DebtInstrument, FinancialFact, FinancialPeriod, KPITarget, SourceDocument
 from scripts.ingest import _load
 from app.schemas.extraction import (
+    ExtractedDebtInstrument,
     ExtractedFact,
     ExtractedKPITarget,
     ExtractedPeriod,
@@ -11,7 +12,12 @@ from app.schemas.extraction import (
 )
 
 
-def _result(filename: str, facts: list[ExtractedFact], kpi_targets: list[ExtractedKPITarget] | None = None) -> ExtractionResult:
+def _result(
+    filename: str,
+    facts: list[ExtractedFact],
+    kpi_targets: list[ExtractedKPITarget] | None = None,
+    debt_instruments: list[ExtractedDebtInstrument] | None = None,
+) -> ExtractionResult:
     return ExtractionResult(
         source_document=ExtractedSourceDocument(filename=filename, doc_type="TEST_DOC"),
         periods=[
@@ -26,7 +32,7 @@ def _result(filename: str, facts: list[ExtractedFact], kpi_targets: list[Extract
         facts=facts,
         customer_metrics=[],
         kpi_targets=kpi_targets or [],
-        debt_instruments=[],
+        debt_instruments=debt_instruments or [],
     )
 
 
@@ -111,3 +117,34 @@ async def test_load_upserts_kpi_targets_by_name(session_factory):
         targets = (await session.scalars(select(KPITarget).where(KPITarget.name == "Revenue CAGR"))).all()
         assert len(targets) == 1
         assert targets[0].description == "v1"  # first-seen wins, not silently replaced
+
+
+async def test_load_persists_debt_instrument_repaid_date_and_note(session_factory):
+    repaid_loan = ExtractedDebtInstrument(
+        name="Working Capital Loan - Test Director",
+        principal=100000.0,
+        start_date="2025-03-01",
+        provider="Test Director",
+        repaid_date="2025-10-31",
+        note="Exact repayment day not disclosed; dated to the last day of the disclosed month.",
+    )
+    still_outstanding_loan = ExtractedDebtInstrument(
+        name="SBCI backed term loan",
+        principal=100000.0,
+        start_date="2024-07-01",
+        provider="SBCI",
+    )
+    await _load(_result("doc-a.pdf", [], debt_instruments=[repaid_loan, still_outstanding_loan]), session_factory)
+
+    async with session_factory() as session:
+        repaid = await session.scalar(
+            select(DebtInstrument).where(DebtInstrument.name == "Working Capital Loan - Test Director")
+        )
+        assert repaid.repaid_date.isoformat() == "2025-10-31"
+        assert "not disclosed" in repaid.note
+
+        outstanding = await session.scalar(
+            select(DebtInstrument).where(DebtInstrument.name == "SBCI backed term loan")
+        )
+        assert outstanding.repaid_date is None
+        assert outstanding.note is None

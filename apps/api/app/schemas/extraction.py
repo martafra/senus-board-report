@@ -61,6 +61,17 @@ class ExtractedDebtInstrument(BaseModel):
     principal: float
     start_date: str
     provider: str
+    repaid_date: str | None = Field(
+        default=None,
+        description=(
+            "ISO date the loan was repaid, if the document discloses it as repaid. Null if it's "
+            "still outstanding as at the document's reporting date."
+        ),
+    )
+    note: str | None = Field(
+        default=None,
+        description="Any caveat worth keeping, e.g. when only a month/year is disclosed rather than an exact day.",
+    )
 
 
 class ExtractionResult(BaseModel):

@@ -1,11 +1,10 @@
 import type { ReactNode } from 'react'
-import type { PeriodMetrics } from '@/lib/api'
 
 /**
- * Shared loading/error/empty handling for a metrics section page, so each page only has to worry
- * about rendering its own chart and table once real data has arrived.
+ * Shared loading/error/empty handling for any list-shaped section of the dashboard, so each
+ * consumer only has to worry about rendering its own content once real data has arrived.
  */
-export function SectionState({
+export function SectionState<T>({
   isLoading,
   error,
   data,
@@ -13,8 +12,8 @@ export function SectionState({
 }: {
   isLoading: boolean
   error: unknown
-  data: PeriodMetrics[] | undefined
-  children: (data: PeriodMetrics[]) => ReactNode
+  data: T[] | undefined
+  children: (data: T[]) => ReactNode
 }) {
   if (isLoading) {
     return <p className="text-muted-foreground">Loading...</p>
