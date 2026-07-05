@@ -209,6 +209,12 @@ cd apps/web
 npm test
 ```
 
+## Deployment
+
+See [`DEPLOYMENT.md`](DEPLOYMENT.md): API + Postgres on Render, frontend on Vercel. The API
+container is self-seeding (migrates, seeds the demo user, and loads all three source documents on
+every boot), so a first deploy needs no manual database step.
+
 ## AI-assisted development workflow
 
 This project was built collaboratively with Claude Code (Anthropic), used for: researching Senus's real

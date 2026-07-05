@@ -1,6 +1,7 @@
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -32,6 +33,19 @@ class Settings(BaseSettings):
     web_origin: str = "http://localhost:5173"
     demo_user_email: str = ""
     demo_user_password: str = ""
+
+    @field_validator("database_url")
+    @classmethod
+    def _use_asyncpg_driver(cls, value: str) -> str:
+        """Managed Postgres providers (e.g. Render) hand out a connection string as
+        postgres:// or postgresql://, with no driver specified. asyncpg needs the
+        postgresql+asyncpg:// scheme, so normalise it here rather than relying on whoever pastes
+        the value into an environment variable to remember to edit it."""
+        if value.startswith("postgres://"):
+            return "postgresql+asyncpg://" + value.removeprefix("postgres://")
+        if value.startswith("postgresql://"):
+            return "postgresql+asyncpg://" + value.removeprefix("postgresql://")
+        return value
 
 
 @lru_cache

@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: senus-board-report-api
+    runtime: docker
+    dockerfilePath: apps/api/Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE_MINUTES
+        value: "480"
+      - key: DEMO_USER_EMAIL
+        sync: false
+      - key: DEMO_USER_PASSWORD
+        sync: false
+      - key: WEB_ORIGIN
+        sync: false
