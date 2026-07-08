@@ -27,3 +27,7 @@ dist/
 
 # Local Postgres data (bind-mounted, see docker-compose.yml)
 .pgdata/
+
+# Personal notes, not project deliverables
+DEMO_SCRIPT.md
+DEMO_SCRIPT.pdf
